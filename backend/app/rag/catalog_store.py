@@ -3,27 +3,20 @@ import pickle
 from pathlib import Path
 from typing import Any
 
-import faiss  # type: ignore
-import numpy as np
-from sentence_transformers import SentenceTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 from app.models.schemas import AssessmentRecord
 from app.utils.logging import get_logger
-
 
 logger = get_logger(__name__)
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "data"
 CATALOG_PATH = DATA_DIR / "catalog.json"
-INDEX_PATH = DATA_DIR / "catalog.index"
+TFIDF_MODEL_PATH = DATA_DIR / "tfidf_model.pkl"
+TFIDF_MATRIX_PATH = DATA_DIR / "tfidf_matrix.pkl"
 META_PATH = DATA_DIR / "catalog_meta.pkl"
-
-
-def _norm(vec: np.ndarray) -> np.ndarray:
-    denom = np.linalg.norm(vec, axis=1, keepdims=True) + 1e-10
-    return vec / denom
-
 
 class CatalogStore:
     _instance: "CatalogStore | None" = None
@@ -38,18 +31,13 @@ class CatalogStore:
             return
         self._initialized = True
         self.records: list[AssessmentRecord] = []
-        self.index: faiss.Index | None = None
         self.metadata: list[dict[str, Any]] = []
-        self.model: SentenceTransformer | None = None
+        self.vectorizer: TfidfVectorizer | None = None
+        self.tfidf_matrix: Any = None
 
     @property
     def count(self) -> int:
         return len(self.records)
-
-    def _get_model(self) -> SentenceTransformer:
-        if self.model is None:
-            self.model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-        return self.model
 
     def load(self) -> None:
         DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -61,16 +49,18 @@ class CatalogStore:
         self.records = [AssessmentRecord.model_validate(item) for item in raw]
         logger.info("Loaded %d catalog records", len(self.records))
 
-        if INDEX_PATH.exists() and META_PATH.exists():
-            self.index = faiss.read_index(str(INDEX_PATH))
+        if TFIDF_MODEL_PATH.exists() and TFIDF_MATRIX_PATH.exists() and META_PATH.exists():
+            with TFIDF_MODEL_PATH.open("rb") as fh:
+                self.vectorizer = pickle.load(fh)
+            with TFIDF_MATRIX_PATH.open("rb") as fh:
+                self.tfidf_matrix = pickle.load(fh)
             with META_PATH.open("rb") as fh:
                 self.metadata = pickle.load(fh)
-            # Fallback safety: if catalog is empty but index metadata exists,
-            # use metadata as source of truth to avoid zero-result regressions.
+            
             if not self.records and self.metadata:
                 self.records = [AssessmentRecord.model_validate(item) for item in self.metadata]
                 logger.warning(
-                    "Catalog JSON empty; recovered %d records from FAISS metadata",
+                    "Catalog JSON empty; recovered %d records from metadata",
                     len(self.records),
                 )
             return
@@ -79,45 +69,47 @@ class CatalogStore:
 
     def _rebuild_index(self) -> None:
         if not self.records:
-            self.index = None
+            self.vectorizer = None
+            self.tfidf_matrix = None
             self.metadata = []
             return
 
-        model = self._get_model()
         docs = [
-            " | ".join(
+            " ".join(
                 [
                     r.name,
                     r.description,
-                    ",".join(r.skills),
-                    ",".join(r.job_roles),
-                    ",".join(r.tags),
+                    " ".join(r.skills),
+                    " ".join(r.job_roles),
+                    " ".join(r.tags),
                 ]
             )
             for r in self.records
         ]
-        embeddings = model.encode(docs, normalize_embeddings=True)
-        vectors = np.asarray(embeddings, dtype="float32")
-        vectors = _norm(vectors)
-        index = faiss.IndexFlatIP(vectors.shape[1])
-        index.add(vectors)
-        self.index = index
+        
+        self.vectorizer = TfidfVectorizer(stop_words='english')
+        self.tfidf_matrix = self.vectorizer.fit_transform(docs)
         self.metadata = [r.model_dump(mode="json") for r in self.records]
-        faiss.write_index(index, str(INDEX_PATH))
+        
+        with TFIDF_MODEL_PATH.open("wb") as fh:
+            pickle.dump(self.vectorizer, fh)
+        with TFIDF_MATRIX_PATH.open("wb") as fh:
+            pickle.dump(self.tfidf_matrix, fh)
         with META_PATH.open("wb") as fh:
             pickle.dump(self.metadata, fh)
 
     def search_vectors(self, query: str, top_k: int = 20) -> list[tuple[float, dict[str, Any]]]:
-        if not self.index or not self.records:
+        if self.vectorizer is None or self.tfidf_matrix is None or not self.records:
             return []
-        model = self._get_model()
-        q = model.encode([query], normalize_embeddings=True)
-        qv = np.asarray(q, dtype="float32")
-        qv = _norm(qv)
-        scores, ids = self.index.search(qv, min(top_k, len(self.records)))
+        
+        query_vec = self.vectorizer.transform([query])
+        scores = cosine_similarity(query_vec, self.tfidf_matrix).flatten()
+        
+        # Sort in descending order
+        top_indices = scores.argsort()[-min(top_k, len(self.records)):][::-1]
+        
         out: list[tuple[float, dict[str, Any]]] = []
-        for score, idx in zip(scores[0], ids[0]):
-            if idx < 0:
-                continue
-            out.append((float(score), self.metadata[idx]))
+        for idx in top_indices:
+            score = float(scores[idx])
+            out.append((score, self.metadata[idx]))
         return out

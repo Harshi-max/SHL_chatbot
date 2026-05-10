@@ -24,6 +24,11 @@ class Recommendation(BaseModel):
     url: HttpUrl
     test_type: str
 
+class RecommendRequest(BaseModel):
+    query: str
+
+class RecommendResponse(BaseModel):
+    recommendations: list[Recommendation]
 
 class ChatResponse(BaseModel):
     reply: str

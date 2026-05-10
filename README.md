@@ -92,13 +92,14 @@ source venv/bin/activate
 ### Install Dependencies
 
 ```bash
-pip install -r backend/requirements.txt
+cd backend
+pip install -r requirements.txt
 ```
 
 ### Run Application
 
 ```bash
-uvicorn backend.app.main:app --reload
+uvicorn app.main:app --reload
 ```
 
 Application runs at:

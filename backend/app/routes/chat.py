@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
-from app.models.schemas import ChatRequest, ChatResponse, Recommendation
+from app.models.schemas import ChatRequest, ChatResponse, Recommendation, RecommendRequest, RecommendResponse
 from app.rag.catalog_store import CatalogStore
+from app.rag.retriever import HybridRetriever
 from app.services.agent import RecommendationAgent
 from app.utils.logging import get_logger
 
@@ -26,4 +27,19 @@ async def chat(request: ChatRequest) -> ChatResponse:
         )
     except Exception as exc:
         logger.exception("Failed /chat request")
+        raise HTTPException(status_code=500, detail="Internal server error") from exc
+
+@router.post("/recommend", response_model=RecommendResponse)
+async def recommend(request: RecommendRequest) -> RecommendResponse:
+    try:
+        store = CatalogStore()
+        if store.count == 0 and not store.records:
+            store.load()
+        retriever = HybridRetriever(store)
+        hits = retriever.retrieve(request.query, top_k=5)
+        
+        recs = [Recommendation.model_validate(item) for item in hits]
+        return RecommendResponse(recommendations=recs)
+    except Exception as exc:
+        logger.exception("Failed /recommend request")
         raise HTTPException(status_code=500, detail="Internal server error") from exc

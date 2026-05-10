@@ -5,9 +5,9 @@ jinja2
 python-dotenv
 requests
 beautifulsoup4
-sentence-transformers
-faiss-cpu
+scikit-learn
 numpy
+pandas
 rapidfuzz
 pytest
 httpx
