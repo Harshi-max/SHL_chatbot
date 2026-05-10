@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHL AI Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <div class="mx-auto max-w-5xl px-4 py-6">
+      <header class="glass rounded-2xl p-4 flex items-center justify-between">
+        <a href="/" class="text-sm text-slate-300 hover:text-white">← Back</a>
+        <h1 class="text-lg font-semibold">SHL AI Assessment Recommender</h1>
+        <button id="exportBtn" class="rounded-lg bg-slate-800 px-3 py-2 text-sm hover:bg-slate-700">Export Chat</button>
+      </header>
+
+      <main class="mt-4 glass rounded-2xl p-4 md:p-6">
+        <div id="chatContainer" class="h-[58vh] overflow-y-auto space-y-4 pr-2"></div>
+
+        <div id="typingRow" class="hidden mt-2 text-sm text-slate-400">Assistant is typing...</div>
+
+        <form id="chatForm" class="mt-4 flex gap-2">
+          <input
+            id="chatInput"
+            class="flex-1 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none focus:border-indigo-400"
+            placeholder="Hiring a Java developer with client-facing responsibilities"
+          />
+          <button
+            id="sendBtn"
+            type="submit"
+            class="rounded-xl bg-indigo-500 px-5 py-3 font-medium hover:bg-indigo-400 transition"
+          >
+            Send
+          </button>
+        </form>
+      </main>
+    </div>
+
+    <script src="/static/chat.js"></script>
+  </body>
+</html>

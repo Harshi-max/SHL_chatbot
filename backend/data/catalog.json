@@ -1,0 +1,239 @@
+[
+  {
+    "name": "Occupational Personality Questionnaire (OPQ)",
+    "url": "https://www.shl.com/products/assessments/personality-assessment/shl-occupational-personality-questionnaire-opq/",
+    "description": "Our occupational personality questionnaire helps you to get accurate, bias-free assessments by matching individual working preferences to business requirements.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "20 min",
+    "remote_support": "Yes",
+    "test_type": "",
+    "tags": []
+  },
+  {
+    "name": "Motivational Questionnaire (MQ)",
+    "url": "https://www.shl.com/products/assessments/personality-assessment/shl-motivation-questionnaire-mq/",
+    "description": "Build an engaged, high-performing workforce using our motivation questionnaire (MQ) by matching individual employee motivation to team and organizational goals.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "20 min",
+    "remote_support": "Yes",
+    "test_type": "",
+    "tags": []
+  },
+  {
+    "name": "Situational Judgment Tests (SJT)",
+    "url": "https://www.shl.com/products/assessments/behavioral-assessments/situation-judgement-tests-sjt/",
+    "description": "Using our Situational Judgment Tests (SJT), you can measure candidates' behavioral fit to a given role by assessing their response to a specific work situation.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "",
+    "tags": []
+  },
+  {
+    "name": "SHL Verify",
+    "url": "https://www.shl.com/products/assessments/cognitive-assessments/",
+    "description": "Measure candidates' potential and ability to learn, adapt, and succeed in any role with SHL's cognitive ability tests and assessments.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "",
+    "tags": []
+  },
+  {
+    "name": "Business Skills",
+    "url": "https://www.shl.com/products/assessments/skills-and-simulations/business-skills/",
+    "description": "With our computer literacy test, assess candidates' Microsoft Office proficiency, such as working with graphs and charts, creating presentations, and more.",
+    "skills": [
+      "Assessment Test",
+      "Computer Literacy Test",
+      "SHL Search Outdated browser detected We recommend upgrading to a modern browser"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "",
+    "tags": []
+  },
+  {
+    "name": "Language Evaluation",
+    "url": "https://www.shl.com/products/assessments/skills-and-simulations/language-evaluation/",
+    "description": "SHL\u2019s AI-powered suite of communication and language proficiency tests automates language assessment, helping you to faster find and hire the right people.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "",
+    "tags": []
+  },
+  {
+    "name": "Global Skills Development Report",
+    "url": "https://www.shl.com/products/product-catalog/view/global-skills-development-report/",
+    "description": "Global Skills Development Report : This report is designed to be given to individuals who have completed the Global Skills Assessment (GSA). With coverage across the Great 8 Domains, this\u2026",
+    "skills": [
+      "Development Report",
+      "SHL Search Outdated browser detected We recommend upgrading to a modern browser"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "A E B C D P Remote Testing",
+    "tags": []
+  },
+  {
+    "name": ".NET Framework 4.5",
+    "url": "https://www.shl.com/products/product-catalog/view/net-framework-4-5/",
+    "description": ".NET Framework 4.5: The.NET Framework 4.5 test measures knowledge of .NET environment. Designed for experienced users, this test covers the following topics: Application\u2026",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": ".NET MVC (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-mvc-new/",
+    "description": ".NET MVC (New): Multi-choice test that measures the knowledge of Model-View-Controller (MVC) architecture, validation, security, routing, and areas.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": ".NET MVVM (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-mvvm-new/",
+    "description": ".NET MVVM (New): Multi-choice test that measures the knowledge of MVVM pattern, scenarios, data validation, ViewModel communication and Quick-start.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": ".NET WCF (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-wcf-new/",
+    "description": ".NET WCF (New): Multi-choice test that measures the knowledge of .NET fundamentals, WCF architecture, programming model, SOA, managing and programming WCF.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": ".NET WPF (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-wpf-new/",
+    "description": ".NET WPF (New): Multi-choice test that measures the knowledge of .NET basics, WPF, XAML controls, events, layouts, working with WPF windows/menus and deploying WPF\u2026",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": ".NET XAML (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-xaml-new/",
+    "description": ".NET XAML (New): Multi-choice test that measures the knowledge of XAML triggers, data binding, custom controls and layouts.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": "Accounts Payable (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-payable-new/",
+    "description": "Accounts Payable (New): Multiple-choice test that measures the knowledge of processing payables and vendor invoices, and the posting of journal entries.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": "Accounts Payable Simulation (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-payable-simulation-new/",
+    "description": "Accounts Payable Simulation (New): Simulated data entry test that measures the ability to process payables and vendor invoices.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "S Remote Testing",
+    "tags": []
+  },
+  {
+    "name": "Accounts Receivable (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-receivable-new/",
+    "description": "Accounts Receivable (New): Multiple-choice test that measures the knowledge of processing receivables and invoices.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  },
+  {
+    "name": "Accounts Receivable Simulation (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-receivable-simulation-new/",
+    "description": "Accounts Receivable Simulation (New): Simulated data entry test that measures the ability to process receivables and invoices.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "S Remote Testing",
+    "tags": []
+  },
+  {
+    "name": "ADO.NET (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/ado-net-new/",
+    "description": "ADO.NET (New): Multi-choice test that measures the knowledge on the concepts of ADO.NET architecture, components and data provider objects.",
+    "skills": [
+      "Development Talent Mobility Interactive Demos Try an online demo of our solutions"
+    ],
+    "job_roles": [],
+    "duration": "",
+    "remote_support": "Yes",
+    "test_type": "K Remote Testing",
+    "tags": []
+  }
+]

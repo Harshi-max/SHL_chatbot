@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+*.pyc
+data/catalog.index
+data/catalog_meta.pkl

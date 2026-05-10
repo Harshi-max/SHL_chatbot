@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHL AI Recommender</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <div class="mx-auto max-w-6xl px-6 py-10">
+      <nav class="glass rounded-2xl px-6 py-4 flex items-center justify-between">
+        <div class="text-lg font-semibold">SHL AI Assessment Recommender</div>
+        <a href="/chat-ui" class="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium hover:bg-indigo-400 transition">Open Chat</a>
+      </nav>
+
+      <section class="mt-10 grid gap-8 md:grid-cols-2 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+            Conversational SHL Assessment Matching, Powered by RAG
+          </h1>
+          <p class="mt-4 text-slate-300">
+            Clarify hiring needs, get catalog-grounded recommendations, compare assessments, and refine choices in one stateless chat flow.
+          </p>
+          <div class="mt-6 flex gap-3">
+            <a href="/chat-ui" class="rounded-xl bg-indigo-500 px-5 py-3 font-medium hover:bg-indigo-400 transition">Start Recommending</a>
+            <a href="/health" class="rounded-xl border border-slate-600 px-5 py-3 font-medium hover:bg-slate-800 transition">API Health</a>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h2 class="text-xl font-semibold">What this app does</h2>
+          <ul class="mt-4 space-y-2 text-slate-300">
+            <li>- Uses only SHL catalog context</li>
+            <li>- Asks concise clarifying questions</li>
+            <li>- Returns 1-10 recommendations when ready</li>
+            <li>- Supports comparison: "Compare X vs Y"</li>
+            <li>- Rejects off-topic and prompt injection</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

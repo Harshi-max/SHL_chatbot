@@ -1,0 +1,23 @@
+:root {
+  color-scheme: light dark;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0b1020;
+  color: #e5e7eb;
+}
+
+a {
+  color: #93c5fd;
+}
